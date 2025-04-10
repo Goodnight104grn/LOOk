@@ -89,5 +89,69 @@ try {
     </div>
   </div>
   <script src="Script.js/script.js"></script>
+
+
+  <script>
+    (function() {
+    console.log("Поточний браузер: " + window.clientInformation.userAgent);
+})();
+
+const students = [
+    { firstName: 'Alice', lastName: 'Johnson', grade: 75 },
+    { firstName: 'Bob', lastName: 'Smith', grade: 85 },
+    { firstName: 'Charlie', lastName: 'Brown', grade: 90 },
+    { firstName: 'David', lastName: 'Davis', grade: 60 },
+    { firstName: 'Eve', lastName: 'Miller', grade: 92 }
+];
+
+const foundStudent = students.find(student => student.grade > 80);
+console.log(foundStudent);
+
+function multiplyAll(...numbers) {
+    return numbers.reduce((total, num) => total * num, 1);
+}
+
+console.log(multiplyAll(2, 3, 4));
+console.log(multiplyAll(1, 5, 7, 9));
+
+let uniqueSet = new Set([1, 2, 3, 4, 5, 5, 6, 7, 7, 8]);
+console.log(uniqueSet);
+
+for (let value of uniqueSet) {
+    console.log(value);
+}
+
+let person = {
+    age: 30,
+    getAge: function() {
+        console.log(this.age);
+    }
+};
+
+let child = {
+    age: 5
+};
+
+let boundGetAge = person.getAge.bind(child);
+boundGetAge();
+
+function createGreeting(greeting) {
+    return function(name) {
+        console.log(greeting + ", " + name + "!");
+    };
+}
+
+let sayHello = createGreeting("Привіт щось   бажаєш купти");
+sayHello("Іван");
+
+let sayGoodDay = createGreeting("Доброго дня, ні дякую не сьогодні");
+sayGoodDay("Марія");
+
+  </script>
 </body>
 </html>
+
+
+
+
+
