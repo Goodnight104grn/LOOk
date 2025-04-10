@@ -1,0 +1,161 @@
+   /* Основні стилі */
+   body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+  }
+
+  /* Шапка */
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 40px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 2;
+  }
+
+
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+  .logo img,
+  #logo {
+    width: 100px;
+    height: 100px;
+    border-radius: 70%;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  #logo:hover {
+    transform: scale(1.1);
+  }
+  .logo span {
+    font-weight: bold;
+    color: #2c2c2c;
+  }
+
+  /* Навігація */
+  .nav {
+    display: grid;
+    grid-template-columns: repeat(6, auto);
+    gap: 1rem;
+    max-width: 70%;
+    margin-top: 40px;
+  }
+  .nav a {
+    display: inline-block;
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 6px 12px;
+    position: relative;
+    white-space: nowrap;
+    transition: transform 0.3s ease, color 0.3s ease;
+    text-align: center;
+  }
+  .nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #007BFF;
+    transition: width 0.3s ease;
+  }
+  .nav a:hover::after {
+    width: 100%;
+  }
+  .nav a:hover {
+    transform: scale(1.05);
+    color: #007BFF;
+  }
+
+
+  .sidebar {
+    position: fixed;
+    top: 100px; 
+    right: -396px;
+    width: 351px;
+    height: calc(100% - 110px);
+    background-color: #fafafa;
+    overflow-y: auto;
+    transition: 0.3s;
+    padding: 20px;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  .sidebar.active {
+    right: 0;
+  }
+  .sidebar h2 {
+    margin-top: 0;
+  }
+
+
+  .basket-item {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: white;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .basket-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+  .basket-item img {
+    width: 60px;
+    float: right;
+    margin-left: 10px;
+    border-radius: 6px;
+  }
+  .basket-item .buttons {
+    margin-top: 10px;
+  }
+  .basket-item button {
+    margin-right: 10px;
+    padding: 5px 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .basket-item button:hover {
+    background-color: #007BFF;
+  }
+
+  /* Анімації */
+  @keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-8px); }
+    50% { transform: translateX(8px); }
+    75% { transform: translateX(-8px); }
+    100% { transform: translateX(0); }
+  }
+  .animate-shake {
+    animation: shake 0.5s ease-in-out;
+  }
+  @keyframes emojiFly {
+    0% {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-50px) scale(1.5);
+      opacity: 0;
+    }
+  }
+  .emoji {
+    position: absolute;
+    font-size: 2rem;
+    animation: emojiFly 2s forwards;
+  }
